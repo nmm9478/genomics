@@ -1,6 +1,5 @@
 # given a file containing a string of DNA with length s (s<=1000 nt, nt=nucleotide)
 # return the number of times each molecule occurs in S ['A', 'C', 'G', 'T']
-
 import sys
 
 dnaStr = ""
