@@ -3,22 +3,24 @@
 import errno
 
 dnaStr = ""
-def is_file():
+def is_file(filename):
     """
     A simple function using that takes input from the user, checks if the file is accessible,
     and reads the file if it exists.
     :return: statement if error, otherwise reads file into dnaStr
     """
     try:
-        file = open(input("Enter a file name: "))   # reads filename inputted by the user
-    except IOError as e:
-        if e.errno == errno.EACCES:
-            return "File not accessible"
-        raise
+        global dnaStr
+        dnaStr = (open(filename)).read()  # reads filename inputted by the user
+    except FileNotFoundError:
+        print("Could not open/read file:", filename)
+        return False
     else:
-        with file:
-            global dnaStr
-            dnaStr = file.read()
+        return True
+
+
+
+
 
 def nucleotide_counting():
     print ("DNA String: ", dnaStr)
@@ -27,12 +29,17 @@ def nucleotide_counting():
     print ("'G' Count: ", dnaStr.count("G"))
     print ("'T' Count: ", dnaStr.count("T"))
 
+def main():
+    filename = input("\n Enter a file name: ")
+    if is_file(filename):
+        nucleotide_counting()
+    else:
+        return
 
-is_file()
-nucleotide_counting()
 
 
 
+main()
 
 
 
