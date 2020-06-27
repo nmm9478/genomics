@@ -1,7 +1,7 @@
 # given a file containing a string of DNA with length s (s<=1000 nt, nt=nucleotide)
 # return the number of times each molecule occurs in S ['A', 'C', 'G', 'T']
 import sys
-from introduction.genome_assembly import nucleotide_counting, reverse_complement
+from introduction.genome_assembly import nucleotide_counting, reverse_complement, dna_transcribe_rna
 
 dnaStr = ""
 def is_file(filename):
@@ -29,13 +29,16 @@ def handle_commands(command):
     """
     if command == "h" or command == "help":
         print("\n Genomics Program Commands: \n ------------------\n Help: type 'h' or 'help' \n Count Nucleotides: type 'count-n'\
-              \n Exit: type 'exit' \n")
+              \n Exit: type 'exit' \n Reverse Complement: type 'rev-comp'\n Transcribe DNA: type 'transcribe'")
     elif command == "count-n":
         print ("\n")
         nucleotide_counting(dnaStr)
-    elif command == "reverse-complement":
+    elif command == "rev-comp": # works
         print ("\n")
-        reverse_complement(dnaStr) # TODO: check this functionality
+        print(reverse_complement(dnaStr))
+    elif command == "transcribe": # works
+        print ("\n")
+        print(dna_transcribe_rna(dnaStr))
     elif command == "exit":
         sys.exit()
 
@@ -43,12 +46,24 @@ def handle_commands(command):
 
 
 def main():
-    filename = input("\n Enter a file name: ")
-    if is_file(filename):
-        while True:
-            handle_commands (input("\nPlease enter a command (Type 'help' or 'h' for help): "))
-    else:
-        return
+    while True:
+        choice = input("\n Would you like to enter data through a file or in this console? "
+                       "(type 'c' for console or 'f' for file, then press enter): ")
+        if choice == "f":
+            filename = input("\n Enter a file name: ")
+            if is_file(filename):
+                while True:
+                    handle_commands (input("\nPlease enter a command (Type 'help' or 'h' for help): "))
+            else:
+                return
+        elif choice == "c":
+            while True:
+                global dnaStr
+                dnaStr = input("\n Please enter a dnaStr and/or other data: ")
+                handle_commands(input("\nPlease enter a command (Type 'help' or 'h' for help): "))
+        else:
+            print("\n ... Command error. Please enter 'c' for console or 'f' for file.")
+
 
 main()
 

@@ -11,15 +11,13 @@ def nucleotide_counting(dnaStr):
     print ("'T' Count: ", dnaStr.count("T"))
 
 def dna_transcribe_rna(dnaStr):
-    #TODO CHECK THIS
     """
     Given DNA string (coding strand), transcribe by replacing all 'T' instances with 'U"
     (DNA to RNA ('A', 'C', 'G', 'U')).
     DNA string length <=1000 nt.
     :return: Transcribed RNA string of the DNA string.
     """
-    for i in dnaStr:
-        if i == "T": i = "U"
+    dnaStr = dnaStr.replace("T", "U")
     return dnaStr
 
 def reverse_complement(dnaStr):
@@ -29,14 +27,15 @@ def reverse_complement(dnaStr):
     the complement of each symbol.
     :return: The reverse complement of a DNA string of length <= 1000 bp.
     """
-    reverse = dnaStr[::-1]
-    for i in reverse:
-        if i == "A": i = "T"
-        elif i == "T": i = "A"
-        elif i == "G": i = "C"
-        elif i == "C": i = "G"
+    complement = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
+    compStr = ""
+    for i in dnaStr:
+        if i in complement:
+            compStr += complement[i]
         else:
-            print("Error")
+            reverse = "Error"
+            return reverse
+    reverse = compStr[::-1]
     return reverse
 
 
