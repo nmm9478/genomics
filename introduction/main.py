@@ -1,6 +1,7 @@
 # given a file containing a string of DNA with length s (s<=1000 nt, nt=nucleotide)
 # return the number of times each molecule occurs in S ['A', 'C', 'G', 'T']
 import sys
+from introduction.genome_assembly import nucleotide_counting, reverse_complement
 
 dnaStr = ""
 def is_file(filename):
@@ -19,17 +20,6 @@ def is_file(filename):
         return True
 
 
-def nucleotide_counting():
-    """
-    Counts each occurrence of nucleotide molecules (A, C, G, T) in a DNA string and prints them
-    :return: None
-    """
-    print ("DNA String: ", dnaStr)
-    print ("'A' Count: ", dnaStr.count("A"))
-    print ("'C' Count: ", dnaStr.count("C"))
-    print ("'G' Count: ", dnaStr.count("G"))
-    print ("'T' Count: ", dnaStr.count("T"))
-
 
 def handle_commands(command):
     """
@@ -42,9 +32,14 @@ def handle_commands(command):
               \n Exit: type 'exit' \n")
     elif command == "count-n":
         print ("\n")
-        nucleotide_counting()
+        nucleotide_counting(dnaStr)
+    elif command == "reverse-complement":
+        print ("\n")
+        reverse_complement(dnaStr) # TODO: check this functionality
     elif command == "exit":
         sys.exit()
+
+
 
 
 def main():
