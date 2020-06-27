@@ -1,4 +1,19 @@
 
+
+from dataclasses import dataclass
+
+@dataclass (frozen=True)
+class DNASeq (object):
+    nuc_count = int
+    transcribe = str
+    rev_comp = str
+    gc_percent = float
+
+
+
+
+
+
 def nucleotide_counting(dnaStr):
     """
     Counts each occurrence of nucleotide molecules (A, C, G, T) in a DNA string and prints them
@@ -46,7 +61,7 @@ def get_gc_content():
     GC-content. Databases hold labeled DNA strings, in FASTA format (eg: >Rosalind_6404 ), where subsequent lines
     contain the DNA string, and the use of '>' indicates the name/label of the next DNA string.
     Given at most 10 DNA strings in FATSA format (<=1kbp each):
-    :return: ID of string
+    :return: ID of string with highest GC content
     """
 
 

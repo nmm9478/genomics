@@ -1,4 +1,4 @@
-def pattern_count(Text, Pattern):
+def pattern_count(text, pattern):
     """
     Counts the frequency of a pattern in a given text
     :param Text: a string text
@@ -6,8 +6,8 @@ def pattern_count(Text, Pattern):
     :return: the frequency count of the pattern
     """
     count = 0
-    for i in range( len(Text)- len(Pattern)+1):
-        if Text[i:len(Pattern)+i] == Pattern:
+    for i in range( len(text)- len(pattern)+1):
+        if text[i:len(pattern)+i] == pattern:
             count+=1
     return count
 

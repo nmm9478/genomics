@@ -11,14 +11,20 @@ def is_file(filename):
     :return: statement if error, otherwise reads file into dnaStr
     """
     try:
-        global dnaStr
-        dnaStr = (open(filename)).read()  # reads filename inputted by the user
+        isFasta = input("Is it a FASTA file? Enter 'y' or 'n'.")
+        if isFasta == "y":
+            fastaFile(filename)
+        elif isFasta == "n":
+            global dnaStr
+            dnaStr = (open(filename)).read()  # reads filename inputted by the user
+        return True
     except FileNotFoundError:
         print("Could not open/read file:", filename)
         return False
-    else:
-        return True
 
+
+
+def fastaFile(filename):
 
 
 def handle_commands(command):
