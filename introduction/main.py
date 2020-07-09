@@ -25,6 +25,22 @@ def is_file(filename):
 
 
 def fastaFile(filename):
+    """
+    :param filename: FASTA-format file input
+    :return: genetic strings in a dictionary
+    """
+    # genetic_strings = {}
+    # file = open(filename).read()
+    # current = 0
+    # for line in file:
+    #     if line[0] == ">":
+    #         genetic_strings[line[1:]] = ""
+    #         current = line[1:]
+    #     else:
+    #         genetic_strings[current] += line
+    # print(genetic_strings)
+    # return genetic_strings
+
 
 
 def handle_commands(command):
@@ -70,8 +86,8 @@ def main():
         else:
             print("\n ... Command error. Please enter 'c' for console or 'f' for file.")
 
-
-main()
+# fastaFile("dna_string1")
+  main()
 
 
 
