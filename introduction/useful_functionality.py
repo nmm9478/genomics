@@ -1,3 +1,8 @@
+"""
+Nikita Massaria
+Genomics Project
+"""
+
 def pattern_count(text, pattern):
     """
     Counts the frequency of a pattern in a given text

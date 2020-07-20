@@ -1,3 +1,8 @@
+"""
+Nikita Massaria
+Genomics Project
+"""
+
 # given a file containing a string of DNA with length s (s<=1000 nt, nt=nucleotide)
 # return the number of times each molecule occurs in S ['A', 'C', 'G', 'T']
 import sys
@@ -27,19 +32,25 @@ def is_file(filename):
 def fastaFile(filename):
     """
     :param filename: FASTA-format file input
-    :return: genetic strings in a dictionary
+    :return:
     """
-    # genetic_strings = {}
-    # file = open(filename).read()
-    # current = 0
-    # for line in file:
-    #     if line[0] == ">":
-    #         genetic_strings[line[1:]] = ""
-    #         current = line[1:]
-    #     else:
-    #         genetic_strings[current] += line
-    # print(genetic_strings)
-    # return genetic_strings
+    for line in filename:
+        # Iterates to first FASTA header to avoid empty-line issues
+        if line.startswith(">"):
+            name = line[1:].strip()
+            break
+        seq_lines = []
+    for line in filename:
+        if line.startswith(">"):
+            yield name, "".join(seq_lines)
+            seq_lines = []
+            name = line[1:].strip()
+            continue
+        seq_lines.append(line.strip())
+    yield name, "".join(seq_lines)
+
+
+
 
 
 
@@ -87,7 +98,7 @@ def main():
             print("\n ... Command error. Please enter 'c' for console or 'f' for file.")
 
 # fastaFile("dna_string1")
-  main()
+main()
 
 
 

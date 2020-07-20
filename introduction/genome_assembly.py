@@ -1,14 +1,17 @@
+"""
+Nikita Massaria
+Genomics Project
+"""
 
+# from dataclasses import dataclass
 
-from dataclasses import dataclass
-
-@dataclass (frozen=True)
-class DNASeq (object):
-    nuc_count = int
-    transcribe = str
-    rev_comp = str
-    gc_percent = float
-
+# @dataclass (frozen=True)
+# class DNASeq (object):
+#     nuc_count = int
+#     transcribe = str
+#     rev_comp = str
+#     gc_percent = float
+#
 
 
 
@@ -68,7 +71,7 @@ def get_gc_content():
 
 def adjacency_list():
     """
-    Given a collection of DNA strings in FASTA format, returns the adjacency list of 03, returning edges in any order.
+    Given a collection of DNA strings in FASTA format, returns the adjacency list, returning edges in any order.
     :return:
     """
 
