@@ -18,7 +18,11 @@ def is_file(filename):
     try:
         isFasta = input("Is it a FASTA file? Enter 'y' or 'n'.")
         if isFasta == "y":
-            fastaFile(filename)
+            sequences = []  # list of sequences from FASTA file
+            with open (filename, "r") as file:
+                for name, seq in fastaFile(file):
+                    sequences.append(seq)
+                    # TODO:  has list of sequences; How to use this data/ needs to be dnaStr format?
         elif isFasta == "n":
             global dnaStr
             dnaStr = (open(filename)).read()  # reads filename inputted by the user
