@@ -49,14 +49,33 @@ def get_gc_content(sequences):
     GC-content is percentage of symbols in string that are 'C' or 'G', where the reverse complement has the same
     GC-content. Databases hold labeled DNA strings, in FASTA format (eg: >Rosalind_6404 ), where subsequent lines
     contain the DNA string, and the use of '>' indicates the name/label of the next DNA string.
-    Given at most 10 DNA strings in FATSA format (<=1kbp each):
+    Given at most 10 DNA strings in FATSA format, in a list 'sequences' (<=1kbp each):
+    (DOES NOT ACCOUNT FOR GC COUNT TIES.)
     :return: ID of string with highest GC content
     """
-    if sequences.size() > 10:
-        print("Error: File has more than 10 DNA strings.")
-        return
-    else:
-        for dnaStr in sequences:
+    if len(sequences) > 10:
+        return "Error: File has more than 10 DNA strings."
+    elif len(sequences) != 0:
+        highest = [0, 0]
+        for seq in sequences: # for tuple in sequences list
+            gc_count = 0
+            for i in seq[1]:
+                if i == "G" or i == "C":
+                    gc_count += 1
+            content = gc_count / len(seq[1])
+            if highest == [0, 0]: # done once at the start
+                highest[1] = content
+                highest[0] = seq[0]
+            elif content > highest[1]:
+                highest[0] = seq[0] # assigns seq ID to the highest record's ID
+                highest[1] = content #assigns gc content value to index 1 of highest
+        return highest[0], round(highest[1]*100, 7) #returns ID of string with highest GC content
+
+
+
+
+
+
 
 
 

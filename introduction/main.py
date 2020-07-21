@@ -6,8 +6,7 @@ Genomics Project
 # given a file containing a string of DNA with length s (s<=1000 nt, nt=nucleotide)
 # return the number of times each molecule occurs in S ['A', 'C', 'G', 'T']
 import sys
-from introduction.genome_assembly import nucleotide_counting, reverse_complement, dna_transcribe_rna
-
+from introduction.genome_assembly import nucleotide_counting, reverse_complement, dna_transcribe_rna, get_gc_content
 dnaStr = ""
 def is_file(filename):
     """
@@ -18,11 +17,13 @@ def is_file(filename):
     try:
         isFasta = input("Is it a FASTA file? Enter 'y' or 'n'.")
         if isFasta == "y":
-            sequences = []  # list of sequences from FASTA file
+            sequences = []  # list of sequences tuples from FASTA file
             with open (filename, "r") as file:
-                for name, seq in fastaFile(file):
-                    sequences.append(seq)
-                    # TODO:  has list of sequences; How to use this data/ needs to be dnaStr format?
+                for entry in fastaFile(file):
+                    sequences.append(entry) # appends each tuple to the 'sequences' list
+                #print (sequences)
+                print(get_gc_content(sequences))
+
         elif isFasta == "n":
             global dnaStr
             dnaStr = (open(filename)).read()  # reads filename inputted by the user
@@ -43,7 +44,7 @@ def fastaFile(filename):
         if line.startswith(">"):
             name = line[1:].strip()
             break
-        seq_lines = []
+    seq_lines = []
     for line in filename:
         if line.startswith(">"):
             yield name, "".join(seq_lines)
