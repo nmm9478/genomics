@@ -11,10 +11,10 @@ Currently supports:
 - reverse complement
 - pattern counting
 - finding the most frequent patterns in a string
-
-Will eventually support:
 - FASTA-file conversion
 - finding the GC-content of a string
+
+Will eventually support:
 - adjacency list of a FASTA-file string collection
 - genome assembly of short super-string
 - finding frequent KMers (patterns) with mismatches
