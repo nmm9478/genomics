@@ -37,9 +37,27 @@ def frequent_KMers(text, k):
     patterns = list(dict.fromkeys(patterns))
     return patterns
 
+def hamming_distance(st1, st2):
 
-def frequent_KMers_mismatches():
+    """
+    Get the number of mismatches (hamming distance) between two strings
+    :param st1: DNA string
+    :param st2: DNA string 2
+    :return: number of mismatches between strings
+    """
+    mismatches = 0
+    for counter, value in enumerate(st1):     # for each letter (value) in string 1 (st1)
+        if value != st2[counter]:
+            mismatches+=1
+    print(mismatches)
+    return mismatches
+
+
+
+
+def frequent_KMers_mismatches(text, k, d):
     """
     frequent_KMers incorporating mismatches
+    :param: string text, integer k, integer d
     :return: all most frequent k-mers with up to 'd' mismatches in 'text'
     """

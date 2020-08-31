@@ -21,7 +21,7 @@ def is_file(filename):
             with open (filename, "r") as file:
                 for entry in fastaFile(file):
                     sequences.append(entry) # appends each tuple to the 'sequences' list
-                #print (sequences)
+                #TODO SETUP GC CONTENT COMMAND FUNCTIONALITY
                 print(get_gc_content(sequences))
 
         elif isFasta == "n":
