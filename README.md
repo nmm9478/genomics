@@ -13,16 +13,16 @@ Currently supports:
 - finding the most frequent patterns in a string
 - FASTA-file conversion
 - finding the GC-content of a string
+- genome assembly with perfect coverage and repeats
+- constructing De Bruijn Graph ..
+- genome assembly with perfect coverage
 
 Will eventually support:
 - adjacency list of a FASTA-file string collection
 - genome assembly of short super-string
 - finding frequent KMers (patterns) with mismatches
 - error correction in Reads
-- constructing De Bruijn Graph
-- genome assembly with perfect coverage
 - genome assembly using reads
-- genome assembly with perfect coverage and repeats
 - assessing assembly quality (N50 and N75)
 - inferring mRNA from protein
 - counting point mutations

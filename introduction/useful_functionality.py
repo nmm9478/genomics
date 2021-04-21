@@ -69,10 +69,25 @@ def hamming_distance(st1, st2):
     return mismatches
 
 
+def call_ga_perf_cov_rep(arr):
+    """
+    calls genome_assembly_perf_cov_rep and returns cyclic super-strings in proper format
+    :param arr: dna str
+    :return: cyclic super strings formatted
+    """
+    k = len(arr[0])
+    piece = lambda e: [e[0:k-1], e[1:k]]
+    edges = [piece(e) for e in arr[1:]]
+    lists_nested = genome_assembly_perf_cov_rep(arr[0], edges, k)
+    lists = unpacker(lists_nested)
+    elements = set(lists)
+    return [e[:len(arr)] for e in elements]
+
+
+
 def genome_assembly_perf_cov_rep (str, edges, k):
     """
-    k = length of k
-    str =
+    k = length of str
     Genome assembly with perfect coverage and repeats
     (Get all possible cycle coverings)
     :return: listed packed (get rid of nesting before printing)
