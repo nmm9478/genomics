@@ -7,6 +7,7 @@ Genomics Project
 # return the number of times each molecule occurs in S ['A', 'C', 'G', 'T']
 import sys
 from introduction.genome_assembly import nucleotide_counting, reverse_complement, dna_transcribe_rna, get_gc_content
+from introduction.useful_functionality import pattern_count
 dnaStr = ""
 def is_file(filename):
     """
@@ -77,6 +78,10 @@ def handle_commands(command):
     elif command == "transcribe": # works
         print ("\n")
         print(dna_transcribe_rna(dnaStr))
+    elif command == "pattern-count": # works
+        print ("\n")
+        pattern = input("\n Input a pattern: \n")
+        print("Count: ", pattern_count(dnaStr, pattern))
     elif command == "exit":
         sys.exit()
 
