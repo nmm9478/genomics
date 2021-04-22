@@ -16,11 +16,12 @@ Currently supports:
 - genome assembly with perfect coverage and repeats
 - constructing De Bruijn Graph ..
 - genome assembly with perfect coverage
+- finding frequent KMers (patterns) with mismatches
+- finding KMers within a number of mismatches of the given KMer
 
 Will eventually support:
 - adjacency list of a FASTA-file string collection
 - genome assembly of short super-string
-- finding frequent KMers (patterns) with mismatches
 - error correction in Reads
 - genome assembly using reads
 - assessing assembly quality (N50 and N75)
