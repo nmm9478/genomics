@@ -1,6 +1,7 @@
 # genomics
 A program for genome assembly/sequencing and genome rearrangements.
 Functions combined to create an interactive program.
+(Code found in folder 'introduction')
 
 This program takes in user input commands. It first asks for a data input,
  either in-console or through a file, to convert DNA strings into the user's preferred output.
